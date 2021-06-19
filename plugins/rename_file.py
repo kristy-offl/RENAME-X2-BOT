@@ -19,6 +19,7 @@ else:
 
 from PIL import Image
 from pyrogram import filters
+from pyrogram import mtb
 from mtb import mtb
 from database.database import *
 from pyrogram import Client as Clinton
