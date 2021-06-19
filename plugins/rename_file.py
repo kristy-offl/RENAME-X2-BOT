@@ -4,6 +4,7 @@ import os
 import time
 import logging
 import pyrogram
+import mtb
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -19,7 +20,6 @@ else:
 
 from PIL import Image
 from pyrogram import filters
-from pyrogram import mtb
 from mtb import mtb
 from database.database import *
 from pyrogram import Client as Clinton
