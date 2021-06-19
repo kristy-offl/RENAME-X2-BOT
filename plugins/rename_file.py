@@ -19,7 +19,7 @@ else:
 
 from PIL import Image
 from pyrogram import filters
-from scripts import Scripted
+from mtb import mtb
 from database.database import *
 from pyrogram import Client as Clinton
 from hachoir.parser import createParser
