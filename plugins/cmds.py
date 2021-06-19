@@ -29,7 +29,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 async def start(bot, update):
           await bot.send_message(
           chat_id=update.chat.id,
-          text=mtb.START_TEXT.format(update.from_user.first_name),
+          text=mtb.START_TXT.format(update.from_user.first_name),
           parse_mode="html",
           disable_web_page_preview=True,
           reply_markup=mtb.START_BUTTONS
