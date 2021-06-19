@@ -19,7 +19,7 @@ else:
 
 from PIL import Image
 from pyrogram import filters
-from scripts import Scripted
+from mtb import mtb
 from database.database import *
 from pyrogram import Client as Clinton
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -47,12 +47,12 @@ async def save_photo(bot, update):
         )
         await bot.send_message(
             chat_id=update.chat.id,
-            text=Scripted.THUMBNAIL_SAVED,
+            text=mtb.THUMBNAIL_SAVED,
             reply_to_message_id=update.message_id
         )
 
 
-@Clinton.on_message(filters.private & filters.command(["sthumbnail"]))
+@Clinton.on_message(filters.private & filters.command(["showthumb"]))
 async def show_thumb(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
@@ -76,18 +76,18 @@ async def show_thumb(bot, update):
          await bot.send_photo(
                chat_id=update.chat.id,
                photo=thumb_image_path,
-               caption=Scripted.CURRENT_THUMBNAIL,
+               caption=mtb.CURRENT_THUMBNAIL,
                reply_to_message_id=update.message_id)
 
         
     elif thumb_image_path is None:
          await bot.send_message(
                chat_id=update.chat.id,
-               text=Scripted.NO_THUMBNAIL_FOUND,
+               text=mtb.NO_THUMBNAIL_FOUND,
                reply_to_message_id=update.message_id)
 
 
-@Clinton.on_message(filters.private & filters.command(["dthumbnail"]))
+@Clinton.on_message(filters.private & filters.command(["deletethumb"]))
 async def delete_thumbnail(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
@@ -106,5 +106,5 @@ async def delete_thumbnail(bot, update):
         pass
     await bot.send_message(
           chat_id=update.chat.id,
-          text=Scripted.THUMBNAIL_DELETED,
+          text=mtb.THUMBNAIL_DELETED,
           reply_to_message_id=update.message_id)
