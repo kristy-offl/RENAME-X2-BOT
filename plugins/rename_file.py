@@ -38,27 +38,27 @@ async def rename_doc(bot, update):
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
             if user.status == "kicked":
-               await update.reply_text(Scripted.ACCESS_DENIED)
+               await update.reply_text(mtb.ACCESS_DENIED)
                return
         except UserNotParticipant:
-            await update.reply_text(text=Scripted.JOIN_NOW_TEXT,
+            await update.reply_text(text=mtb.JOIN_NOW_TEXT,
                   reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="ᴊᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{Config.UPDATE_CHANNEL}") ]
                 ] 
               )
             )
             return
         except Exception:
-            await update.reply_text(Scripted.CONTACT_MY_DEVELOPER)
+            await update.reply_text(mtb.CONTACT_MY_DEVELOPER)
             return
 
     if (" " in update.text) and (update.reply_to_message is not None):
         cmd, file_name = update.text.split(" ", 1)
         new_file = file_name[:60] + file_name[-4:]
-        description = Scripted.CUSTOM_CAPTION.format(file_name)
+        description = mtb.CUSTOM_CAPTION.format(file_name)
         download_location = Config.DOWNLOAD_LOCATION + "/"
         c = await bot.send_message(
             chat_id=update.chat.id,
-            text=Scripted.TRYING_TO_DOWNLOAD,
+            text=mtb.TRYING_TO_DOWNLOAD,
             reply_to_message_id=update.message_id
         )
         c_time = time.time()
@@ -66,12 +66,12 @@ async def rename_doc(bot, update):
             message=update.reply_to_message,
             file_name=download_location,
             progress=progress_for_pyrogram,
-            progress_args=(Scripted.DOWNLOAD_START, c, c_time) )
+            progress_args=(mtb.DOWNLOAD_START, c, c_time) )
 
         if the_real_download_location is not None:
             try:
                 await bot.edit_message_text(
-                    text=Scripted.TRYING_TO_UPLOAD,
+                    text=mtb.TRYING_TO_UPLOAD,
                     chat_id=update.chat.id,
                     message_id=c.message_id
                 )
@@ -109,7 +109,7 @@ async def rename_doc(bot, update):
             caption=description,
             reply_to_message_id=update.reply_to_message.message_id,
             progress=progress_for_pyrogram,
-            progress_args=(Scripted.UPLOAD_START, c, c_time))
+            progress_args=(mtb.UPLOAD_START, c, c_time))
 
             try:
                 os.remove(the_real_download_location)
@@ -117,7 +117,7 @@ async def rename_doc(bot, update):
             except:
                 pass
             await bot.edit_message_text(
-                  text=Scripted.UPLOAD_SUCCESS,
+                  text=mtb.UPLOAD_SUCCESS,
                   chat_id=update.chat.id,
                   message_id=c.message_id
             )
@@ -125,5 +125,5 @@ async def rename_doc(bot, update):
     else:
         await bot.send_message(
             chat_id=update.chat.id,
-            text=Scripted.REPLY_TO_FILE,
+            text=mtb.REPLY_TO_FILE,
             reply_to_message_id=update.message_id)
