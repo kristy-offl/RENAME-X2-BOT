@@ -32,3 +32,5 @@ async def start(bot, update):
           text=Scripted.START_TEXT.format(update.from_user.first_name),
           parse_mode="html",
           disable_web_page_preview=True,
+          reply_markup=mtb.START_BUTTONS
+        )           
