@@ -19,7 +19,7 @@ else:
     from config import Config
 
 from pyrogram import filters
-from scripts import Scripted
+from mtb import mtb
 from pyrogram import Client as Clinton
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -32,11 +32,7 @@ async def start(bot, update):
           text=Scripted.START_TEXT.format(update.from_user.first_name),
           parse_mode="html",
           disable_web_page_preview=True,
-          reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text='🚀Updates Channel🚀', url=f'https://t.me/{Config.UPDATE_CHANNEL}'),
-                                                 InlineKeyboardButton(text='🚨Support Group🚨', url=f'https://t.me/{Config.UPDATE_GROUP}') ],
-                                               [ InlineKeyboardButton(text='Close', callback_data='DM') ] ] ) )
-
-
+ 
 
 @Clinton.on_message(filters.command(["help"]))
 async def helpme(bot, update):
@@ -45,9 +41,6 @@ async def helpme(bot, update):
           text=Scripted.HELP_TEXT,
           parse_mode="html",
           disable_web_page_preview=True,
-          reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text='ᴄʟᴏꜱᴇ', callback_data='DM') ] ] ) )
-
-
 
 @Clinton.on_message(filters.command(["about"]))
 async def abot(bot, update):
@@ -56,8 +49,6 @@ async def abot(bot, update):
           text=Scripted.ABOUT_TEXT,
           parse_mode="html",
           disable_web_page_preview=True,
-          reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text='ᴄʟᴏꜱᴇ', callback_data='DM') ] ] ) )
-
 
 
 @Clinton.on_message(filters.command(["upgrade"]))
@@ -67,7 +58,6 @@ async def upgra(bot, update):
           text=Scripted.UPGRADE_TEXT,
           parse_mode="html",
           disable_web_page_preview=True,
-          reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text='ᴄʟᴏꜱᴇ', callback_data='DM') ] ] ) )
 
 
 
