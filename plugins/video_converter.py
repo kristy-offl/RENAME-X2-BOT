@@ -20,7 +20,7 @@ else:
 
 from PIL import Image
 from pyrogram import filters
-from scripts import Scripted
+from mtb import mtb
 from pyrogram import Client as Clinton
 from hachoir.parser import createParser
 from hachoir.metadata import extractMetadata
@@ -38,7 +38,7 @@ async def convert(bot, update):
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
             if user.status == "kicked":
-               await update.reply_text(Scripted.ACCESS_DENIED)
+               await update.reply_text(mtb.ACCESS_DENIED)
                return
         except UserNotParticipant:
             await update.reply_text(text=Scripted.JOIN_NOW_TEXT,
@@ -48,7 +48,7 @@ async def convert(bot, update):
             )
             return
         except Exception:
-            await update.reply_text(Scripted.CONTACT_MY_DEVELOPER)
+            await update.reply_text(mtb.CONTACT_MY_DEVELOPER)
             return
 
     if update.reply_to_message is not None:
@@ -56,7 +56,7 @@ async def convert(bot, update):
         download_location = Config.DOWNLOAD_LOCATION + "/"
         c = await bot.send_message(
             chat_id=update.chat.id,
-            text=Scripted.TRYING_TO_DOWNLOAD,
+            text=mtb.TRYING_TO_DOWNLOAD,
             reply_to_message_id=update.message_id
         )
         c_time = time.time()
@@ -72,7 +72,7 @@ async def convert(bot, update):
         )
         if the_real_download_location is not None:
             await bot.edit_message_text(
-                text=Scripted.TRYING_TO_UPLOAD,
+                text=mtb.TRYING_TO_UPLOAD,
                 chat_id=update.chat.id,
                 message_id=c.message_id
         )
@@ -115,7 +115,7 @@ async def convert(bot, update):
                 reply_to_message_id=update.reply_to_message.message_id,
                 progress=progress_for_pyrogram,
                 progress_args=(
-                    Scripted.UPLOAD_START,
+                    mtb.UPLOAD_START,
                     c,
                     c_time
                 )
@@ -126,7 +126,7 @@ async def convert(bot, update):
             except:
                 pass
             await bot.edit_message_text(
-                  text=Scripted.UPLOAD_SUCCESS,
+                  text=mtb.UPLOAD_SUCCESS,
                   chat_id=update.chat.id,
                   message_id=c.message_id
             )
@@ -134,5 +134,5 @@ async def convert(bot, update):
     else:
         await bot.send_message(
             chat_id=update.chat.id,
-            text=Scripted.REPLY_TO_MEDIA,
+            text=mtb.REPLY_TO_MEDIA,
             reply_to_message_id=update.message_id)
