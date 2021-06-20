@@ -14,7 +14,7 @@ if bool(os.environ.get("WEBHOOK", False)):
 else:
     from config import Config
 
-from script import script
+from scripts import scripts
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
