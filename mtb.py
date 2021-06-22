@@ -13,19 +13,27 @@ Use help Button For More Details
   HELP_TXT = """
   
   **Hey 🙋‍♂️It's Not Complicated To Use Me.
-➠ Just Send Me A File
-➠ Select Your Options
-➠ Wait Until Your Requests Gets Complete Don't Spam Here
+
+➩ Send Me A Image To Save It As Custom Thumbnail permanently [ Optional ]
+
+➩ Then Send Me Your File Or Video Which You Want To Rename. 
+
+➩ Reply With File That File /rename [ Custom File Name ]
+
+➩ Then Wait For Sometime Until Bot Renames & Upload It..!! 
+
 <\ Available Commands />
 • /start - 🎉 Start Message
+• /rename - 🌊Rename Telegram Files
 • /showthumb - 🎆 To Saved Custom Permanent thumbnail
 • /delthumb - ❌  Clears Saved Custom Thumbnail To Default
+
 🎉Powerded By : @HiroshiBots**
 """
   
   ABOUT_TXT = """
   
-<b>🎆My Name : <a href='https://t.me/RenameMLBot'>Rename Hiroshi Bot</a></b>\n
+<b>🎆My Name : <a href='https://t.me/RenameHiroshiBot'>Rename Hiroshi Bot</a></b>\n
 <b>👩‍🦽Version : <a href='https://t.me/RenameMLBot'>0.9.2 beta</a></b>\n
 <b>⛑Source : <a href='https://t.me/WantSourceCode'>Click Here</a></b>\n
 <b>⚙️Server : <a href='https://heroku.com'>Heroku</a></b>\n
