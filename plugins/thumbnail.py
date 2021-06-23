@@ -47,7 +47,7 @@ async def save_photo(bot, update):
         )
         await bot.send_message(
             chat_id=update.chat.id,
-            text=mtb.THUMBNAIL_SAVED,
+            text=Scripted.THUMBNAIL_SAVED,
             reply_to_message_id=update.message_id
         )
 
@@ -76,14 +76,14 @@ async def show_thumb(bot, update):
          await bot.send_photo(
                chat_id=update.chat.id,
                photo=thumb_image_path,
-               caption=mtb.CURRENT_THUMBNAIL,
+               caption=Scripted.CURRENT_THUMBNAIL,
                reply_to_message_id=update.message_id)
 
         
     elif thumb_image_path is None:
          await bot.send_message(
                chat_id=update.chat.id,
-               text=mtb.NO_THUMBNAIL_FOUND,
+               text=Scripted.NO_THUMBNAIL_FOUND,
                reply_to_message_id=update.message_id)
 
 
@@ -106,5 +106,5 @@ async def delete_thumbnail(bot, update):
         pass
     await bot.send_message(
           chat_id=update.chat.id,
-          text=mtb.THUMBNAIL_DELETED,
+          text=Scripted.THUMBNAIL_DELETED,
           reply_to_message_id=update.message_id)
