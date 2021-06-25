@@ -1,11 +1,19 @@
 class Scripted(object):    
 
 
-    PROGRESS_DIS = """\n
-<b>📁Downloading To My Server : {1} | {2}</b>\n
-<b>♂️Percentage : {0}%</b>\n
-<b>⚡Speed: : {3}/s</b>\n
-<b>⏱️Estimated Time: {4}</b>\n"""
+    PROGRESS_DIS = """
+╭────── ⌊ 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗶𝗻𝗴  : [ {0}% ] 📤 ⌉
+│
+├ 💫𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱 : {1} | {2}
+|
+├ ⚡️𝗣𝗲𝗿𝗰𝗲𝗻𝘁𝗮𝗴𝗲 : {0}%
+|
+├ 🚀𝗦𝗽𝗲𝗲𝗱  : {3}/s
+|
+├ ⏰𝗘𝘀𝘁𝗶𝗺𝗮𝘁𝗲𝗱 𝗧𝗶𝗺𝗲  : {4}
+│
+╰── 『 💠 @HiroshiBots 💠 』
+"""
 
 
     HELP_TEXT = """
